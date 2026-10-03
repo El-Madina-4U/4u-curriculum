@@ -1,0 +1,17 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* Set up colour palette and fonts using variables */
+:root {
+  
+  --body-background-colour: #EEF0F2;
+  --body-text-colour: #000000;
+
+  --highlight-colour: #DB2B39;
+
+  --nav-colour: #F3A712;
+  --nav-link-colour: #29335C;
+
+  --main-font: "Victor Mono", monospace;
+
+}

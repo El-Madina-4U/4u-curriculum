@@ -1,0 +1,32 @@
+:root {
+  --background-colour-body: #ffffff;
+  --background-colour-footer: #000000;
+  --text-colour-footer: #e6b400;
+  --background-colour-header: #000000;
+  --text-colour-logo: #ffdb58;
+  --text-colour-nav-link: #e6b400;  
+  --text-colour-nav-hover: #ffffff;
+  --button-colour: #007bff;
+  --button-hover-colour: #0056b3;
+  --background-colour-section: #f8f8f8;
+  --border-colour-section: #dddddd;
+  --text-colour-section-heading: #333333;
+  --text-colour-section-summary: #007bff;
+  --text-colour-alert: #ff0000;
+  --background-colour-switch: #cccccc;
+  --switch-colour: #ffffff;
+  --background-colour-switch-checked: #2196f3;
+  --text-colour-switch-label: #ffffff;
+  --background-colour-hero-nav: #00000080;
+  --text-colour-hero-nav: #ffffff;
+  --background-colour-light-mode: #515152;
+  --text-colour-light-mode: #ffffff;
+  --background-colour-light-mode-navigation: #8e6363;
+  --text-colour-light-mode-year: #000000;
+  --text-colour-light-mode-logo: #000000;
+  --text-colour-light-mode-nav: #000000;
+  --text-colour-light-mode-nav-hover: #2196f3;
+  --background-colour-light-mode-header: #e6b400;
+  --background-colour-light-mode-footer: #e6b400;
+  --text-colour-light-mode-footer: #000000;
+}

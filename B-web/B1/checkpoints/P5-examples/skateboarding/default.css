@@ -1,0 +1,19 @@
+
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #f0d06b;
+  --secondary: #bf2742;
+  --tertiary: #577c80;
+  --page: #f0d06b;
+  --onprimary: #501e31;
+  --onsecondary: #f0d06b;
+  --onpage: #ffffff;
+  --detail: #577c80;
+  --detail2: #577c80;
+
+  --body-font: lighter 1.3rem "Chewy", cursive;
+  --header-font: lighter 3rem "Chewy", cursive;
+  --title-font: lighter 2rem "Chewy", cursive;
+  --card-font: lighter 1.5rem "Chewy", cursive;
+}

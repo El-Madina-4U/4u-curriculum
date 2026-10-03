@@ -1,0 +1,19 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #b4b4b4; /* */
+  --onprimary: #000000; /* */
+  --secondary: #c9b037; /* */
+  --onsecondary: #000000; /* */
+  --tertiary: #ad8a56; /* */
+  --ontertiary: #000000; /* */
+  --page: #ffffff; /* */
+  --onpage: #000000; /* */
+  --detail: #af9500; /* */
+  --detail2: #6a3805; /* */
+  
+  --body-font: 1rem Verdana, sans-serif;
+  --header-font: lighter 3rem "Faster One", cursive;
+  --title-font: lighter 2rem "Faster One", cursive;
+  --quote-font: lighter 1.5rem "Faster One", cursive; 
+}

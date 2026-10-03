@@ -1,0 +1,276 @@
+* {
+  transition: .4s ease-in-out;
+  font-family: var(--main-font);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh; /* Make the content fill the page so the footer is at the bottom */
+  display: flex;
+  flex-direction: column;
+  font-size: 26px;
+  background-color: var(--body-background);
+  color: var(--body-text-colour);
+}
+
+main {
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto; /* Center if the browser is really wide */
+  min-width: 25rem; /* Don't let the content get too narrow */
+  max-width: 70rem; /*  Don't let the content get too wide */
+  padding: 0;
+}
+
+section {
+  width: 95%;
+  text-align: center;
+  padding: 2.5% 2.5%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+h1 {
+  width: 100%;
+}
+
+nav {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--nav-bar);
+}
+
+.dropdown {
+  width: 300px;
+  font-size: medium;
+  padding: 5px;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+button {
+  width: 100%;
+  border: none;
+  background-color: white;
+  font-size: 28px;
+  font-family: inherit;
+}
+
+#dropdown-options {
+  position: relative;
+  display: none;
+  color: white;
+  min-width: 140px;
+  text-align: center;
+  z-index: 1;
+}
+
+#dropdown-options.open {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+#instruction {
+  height: 100vh;
+
+  h1 {
+    font-size: 62px;
+  }
+}
+
+#content-holder {
+  grid-template-rows: repeat(3, 100vh auto);
+}
+
+#content-holder > h1 {
+  font-size: 3em;
+  margin: auto;
+}
+
+.content {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 5px 5px black;
+  padding: 5px;
+  font-size: 24px;
+  opacity: 0;
+}
+
+/* Body Classes */
+.seventies {
+  background-color: var(--70s-body);
+  color: var(--70s-text-colour);
+  nav {
+    background-color: var(--70s-nav-bar);
+  }
+}
+
+.eighties {
+  background-color: var(--80s-body);
+  color: var(--80s-text-colour);
+  nav {
+    background-color: var(--80s-nav-bar);
+  }
+}
+
+.nineties {
+  background-color: var(--90s-body);
+  color: var(--90s-text-colour);
+  nav {
+    background-color: var(--90s-nav-bar);
+  }
+}
+
+#slot-1 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+/* Slot 1 classes */
+#slot-1.seventies {
+  background-color: var(--slot1-seventies);
+  color: white;
+}
+
+#slot-1.eighties {
+  background-color: var(--slot1-eighties);
+  color: white;
+}
+
+#slot-1.nineties {
+  background-color: var(--slot1-nineties);
+  color: white;
+}
+
+#slot-2 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+/* Slot 2 classes */
+#slot-2.seventies {
+  background-color: var(--slot2-seventies);
+  color: white;
+}
+
+#slot-2.eighties {
+  background-color: var(--slot2-eighties);
+  color: white;
+}
+
+#slot-2.nineties {
+  background-color: var(--slot2-nineties);
+  color: black;
+}
+
+#slot-3 {
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+/* Slot 3 classes */
+#slot-3.seventies {
+  background-color: var(--slot3-seventies);
+  color: black;
+}
+
+#slot-3.eighties {
+  background-color: var(--slot3-eighties);
+  color: black;
+}
+
+#slot-3.nineties {
+  background-color: var(--slot3-nineties);
+  color: black;
+}
+
+/* Animations */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 1;
+  animation: appear 2s ease;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.grow-in {
+  opacity: 1;
+  animation: grow 2s ease;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-70%);
+    opacity: 1;
+  }
+}
+
+.rise-in {
+  opacity: 1;
+  transform: translateY(-70%);
+  animation: rise 2s ease;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translatex(-70%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.slide-left {
+  opacity: 1;
+  animation: slide-in-left 2s ease;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translatex(70%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.slide-right {
+  opacity: 1;
+  animation: slide-in-right 2s ease;
+}

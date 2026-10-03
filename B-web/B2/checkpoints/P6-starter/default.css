@@ -1,0 +1,12 @@
+/* Import a font
+
+
+/* Set up colour palette and fonts using variables */
+:root {
+  
+  --body-background-colour: #000000;
+  --body-text-colour: #FFFFFF;
+
+  --main-font: 'Arial', sans-serif;
+
+}

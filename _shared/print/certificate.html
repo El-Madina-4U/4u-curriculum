@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>4U · شهادة إتمام مستوى</title>
+<!--
+  شهادة إتمام — A4 أفقى، شهادة فى الصفحة.
+  الاستخدام: افتح الملف فى المتصفح ← Ctrl+P ← أفقى ← «طباعة الخلفيات» شغالة.
+  الاسم والجملة والتوقيع تتكتب **بخط اليد** بعد الطباعة — القرار مكتوب فى certificate.md.
+  ملف واحد مكتف ذاتيا، الخطوط محلية، بلا أى مرجع خارجى.
+-->
+<style>
+@font-face{font-family:"Baloo 4U";font-weight:500 800;font-display:swap;src:url("../fonts/baloo-arabic.woff2") format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Baloo 4U";font-weight:500 800;font-display:swap;src:url("../fonts/baloo-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cairo 4U";font-weight:400 700;font-display:swap;src:url("../fonts/cairo-arabic.woff2") format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Cairo 4U";font-weight:400 700;font-display:swap;src:url("../fonts/cairo-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{--ink:#1b1035;--accent:#ff7a00;--accent-2:#7c3aed;--accent-3:#ffd60a;--line:#cfc6e6;
+  --display:"Baloo 4U","Segoe UI",Tahoma,sans-serif;--body:"Cairo 4U","Segoe UI",Tahoma,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);color:var(--ink);background:#e9e5f2}
+
+@page{size:A4 landscape;margin:0}
+.cert{
+  width:297mm;height:210mm;padding:14mm;margin:0 auto;background:#fffdf8;position:relative;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  break-after:page;page-break-after:always;overflow:hidden}
+/* إطار مزدوج — الخارجى ملون والداخلى رفيع */
+.cert::before{content:"";position:absolute;inset:8mm;border:3mm solid var(--accent-2);border-radius:6mm}
+.cert::after{content:"";position:absolute;inset:13mm;border:.6mm solid var(--accent);border-radius:3mm}
+.inner{position:relative;z-index:1;width:100%;padding:0 12mm}
+
+.brand{font-family:var(--display);font-weight:800;font-size:11mm;color:var(--accent);letter-spacing:.02em}
+.kind{font-family:var(--display);font-weight:700;font-size:6mm;color:var(--accent-2);margin-top:2mm}
+.rule{width:40mm;height:1.2mm;background:var(--accent-3);border-radius:1mm;margin:4mm auto}
+
+/* الأسطر اللى بتتكتب بخط اليد — منقطة عشان تبان مكان الكتابة */
+.write{border-bottom:.4mm dashed var(--line);min-height:11mm;margin:1mm auto 0;width:80%}
+.write.small{min-height:8mm;width:88%}
+.label{font-size:3.4mm;color:#6b6385;margin-top:1.2mm}
+
+.line{font-size:4.6mm;margin-top:5mm}
+.level{font-family:var(--display);font-weight:800;font-size:8mm;color:var(--ink);margin-top:2mm}
+.levelname{font-size:4.6mm;color:#6b6385;margin-top:1mm}
+.learned{font-family:var(--display);font-weight:700;font-size:5.4mm;color:var(--accent-2);margin-top:5mm;
+  background:#f6f1ff;border:.5mm solid var(--line);border-radius:3mm;padding:2mm 6mm;display:inline-block}
+
+.foot{position:absolute;bottom:22mm;left:26mm;right:26mm;display:flex;justify-content:space-between;
+  align-items:flex-end;z-index:1;font-size:3.8mm;color:#6b6385}
+.sig{width:60mm;border-bottom:.4mm solid var(--ink);padding-bottom:1mm}
+.sig .cap{margin-top:1.5mm;font-size:3.4mm}
+
+/* شاشة فقط: تعليمات مش بتتطبع */
+.howto{max-width:297mm;margin:6mm auto;padding:5mm 8mm;background:#fff;border-radius:3mm;font-size:3.6mm;line-height:1.7}
+.howto code{background:#f2eefc;padding:.2mm 1.4mm;border-radius:1mm;direction:ltr;unicode-bidi:isolate}
+@media print{.howto{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<div class="howto">
+  <b>الطباعة:</b> <code>Ctrl+P</code> ← الاتجاه <b>أفقى</b> ← الهوامش <b>بلا</b> ← <b>طباعة الخلفيات</b> شغالة ← ورق <b>160</b> جرام.<br>
+  <b>بعد الطباعة:</b> الاسم والجملة والتوقيع <b>بخط اليد</b> بقلم جاف أزرق — القرار ومبرره فى <code>certificate.md</code>.<br>
+  <b>قبل ما تطبع:</b> غير اسم المستوى والتلات كلمات تحت حسب الفوج. باقى الصفحة يفضل زى ما هو.
+</div>
+
+<section class="cert">
+  <div class="inner">
+    <div class="brand">أكاديمية 4U</div>
+    <div class="kind">شهادة إتمام مستوى</div>
+    <div class="rule"></div>
+
+    <div class="write"></div>
+    <div class="label">اسم الطفل</div>
+
+    <div class="line">أتم المستوى</div>
+    <div class="level">A2</div>
+    <div class="levelname">Scratch أكتر — الرسائل والقرار والذاكرة</div>
+
+    <div class="line">وبنى بنفسه:</div>
+    <div class="write small"></div>
+    <div class="label">جملة واحدة عن مشروعه هو — مش نص عام</div>
+
+    <div class="learned">التواصل · القرار · الذاكرة</div>
+  </div>
+
+  <div class="foot">
+    <div>الشهر / السنة: ____________</div>
+    <div class="sig"><div class="cap">توقيع المدرس</div></div>
+  </div>
+</section>
+
+</body>
+</html>

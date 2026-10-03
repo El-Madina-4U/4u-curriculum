@@ -1,0 +1,19 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #43c743; /* */
+  --onprimary: #000000; /* */
+  --secondary: #d80303; /* */
+  --onsecondary: #ffffff; /* */
+  --tertiary: #2c2ce6; /* */
+  --ontertiary: #ffffff; /* */
+  --page: #ffffff; /* */
+  --onpage: #000000; /* */
+  --detail: #e9e925; /* */
+  --detail2: #70008f; /* */
+  
+  --body-font: 1rem Verdana, sans-serif;
+  --header-font: lighter 3rem "Freckle Face", cursive;
+  --title-font: lighter 2rem "Freckle Face", cursive;
+  --quote-font: lighter 1.5rem "Freckle Face", cursive;
+}

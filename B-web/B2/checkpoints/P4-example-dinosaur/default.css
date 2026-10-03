@@ -1,0 +1,29 @@
+:root {
+  /* Font variable */
+  --main-font: 'sans-serif';
+  
+  /* Base Colours */
+  --body-background: #FFFFFF;
+  --body-text-colour: #000000;
+  --nav-bar: #FFFFFF;
+
+  /* Option Body classes */
+  --body-t-rex: #FFFFFF;
+  --body-triceratops: #FFFFFF;
+  --body-stegosaurus: #FFFFFF;
+
+  /* Slot 1 colours */
+  --slot-1-t-rex: #00b2a9;
+  --slot-1-triceratops: #1c2c5b;
+  --slot-1-stegosaurus: #132257;
+
+  /* Slot 2 colours */
+  --slot-2-t-rex: #00b2a9;
+  --slot-2-triceratops: #ffc659;
+  --slot-2-stegosaurus: #131f53;
+
+  /* Slot 3 colours */
+  --slot-3-t-rex: #00b2a9;
+  --slot-3-triceratops: #ec3325;
+  --slot-3-stegosaurus: #131f53;
+}

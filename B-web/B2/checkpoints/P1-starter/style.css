@@ -1,0 +1,164 @@
+body {
+    background-color: var(--body-background);
+    color: var(--body-text-colour);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh; /* Make the content fill the page so the footer is at the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    height: 100%;
+    justify-content: center;
+    margin: 0 auto; /* Center if the browser is really wide */
+    min-width: 25rem; /* Don't let the content get too narrow */
+    max-width: 70rem; /*  Don't let the content get too wide */
+    padding: 0;
+}
+
+section {
+    width: 95%;
+    text-align: center;
+    padding: 2.5% 2.5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+h1 {
+    width: 100%;
+}
+
+/* Nav bar */
+nav {
+    padding: 0 15px;
+    height: 60px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nav items */
+
+
+/* Nav bar links */
+
+
+/* Nav links hover */
+
+
+/* Nav links active */
+
+
+/* Burger menu */
+
+
+/* Hero image - homepage */
+
+
+/* Hero image - wildlife */
+
+
+/* Hero image - climate */
+
+
+/* Fact holder - homepage */
+.fact-holder {
+  display: grid;
+  height: 50vh;
+  grid-template-rows: 75% 25%;
+  grid-template-columns: 75% 25%;
+}
+
+/* Fact holder - wildlife */
+
+
+/* Fact card */
+
+
+.fact {
+  font-size: 100%;
+  color: var(--fact-text-colour);
+  background-color: var(--fact-background);
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 0 5px 0 5px;
+}
+
+/* Fact hover */
+
+
+/* Fact images */
+
+.sun {
+  background-image: url("antarctic-sun.jpg");
+}
+
+.discovery {
+  background-image: url("aerial-antarctica.jpeg");
+}
+
+.explorers {
+  background-image: url("explorers.jpg");
+}
+
+.ownership {
+  background-image: url("world_flags.png");
+}
+
+.research {
+  background-image: url("research.jpg");
+}
+
+.penguins {
+  background-image: url("wildlife-emperor-penguin.jpg");
+}
+
+.krill {
+  background-image: url("wildlife-krill.jpg");
+}
+
+.seals {
+  background-image: url("wildlife-seal.jpg");
+}
+
+.orcas {
+  background-image: url("wildlife-orca.jpg");
+}
+
+.minke-whale {
+  background-image: url("wildlife-minke-whale.jpg");
+}
+
+.albatross {
+  background-image: url("wildlife-albatross.jpg");
+}
+
+.gentoo-penguin {
+  background-image: url("wildlife-gentoo-penguin.jpg");
+}
+
+.temperature {
+  background-image: url("climate-snow.jpg");
+}
+
+.sunburn {
+  background-image: url("climate-sun.jpg");
+}
+
+.ice {
+  background-image: url("climate-ice.jpg");
+}
+
+.rainfall {
+  background-image: url("climate-rain.jpg");
+}
+
+/* Media query */

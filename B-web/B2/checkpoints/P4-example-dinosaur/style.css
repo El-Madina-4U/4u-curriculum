@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+* {
+  transition: .4s ease-in-out;
+}
+
+body {
+  background-color: #4e1644;
+  color: white;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh; /* Make the content fill the page so the footer is at the bottom */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Indie Flower', cursive;
+  font-size: 32px;
+}
+
+main {
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto; /* Center if the browser is really wide */
+  min-width: 25rem; /* Don't let the content get too narrow */
+  max-width: 70rem; /*  Don't let the content get too wide */
+  padding: 0;
+}
+
+section {
+  width: 95%;
+  text-align: center;
+  padding: 2.5% 2.5%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+h1 {
+  width: 100%;
+}
+
+nav {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  background-color: #9385bf;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.dropdown {
+  width: 300px;
+  font-size: large;
+  padding: 5px;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+button {
+  width: 100%;
+  border: none;
+  background-color: white;
+  font-size: 32px;
+  font-family: inherit;
+}
+
+#dropdown-options {
+  position: relative;
+  display: none;
+  color: white;
+  min-width: 140px;
+  text-align: center;
+  z-index: 1;
+}
+
+#dropdown-options.open {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+#instruction {
+  height: 100vh;
+
+  h1 {
+      font-size: 62px;
+  }
+}
+
+#content-holder {
+  display: none;
+  grid-template-rows: repeat(3, 100vh auto);
+}
+
+#content-holder > h1 {
+  font-size: 3em;
+  margin: auto;
+}
+
+.content {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 5px 5px black;
+  padding: 5px;
+  font-size: 32px;
+  opacity: 0;
+}
+
+#slot-1 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#slot-1.trex {
+  background-color: var(--slot-1-t-rex);
+  
+  h1 {
+    color: #F6EB61;
+  }
+}
+
+#slot-1.triceratops {
+  background-color: var(--slot-1-triceratops);
+
+  h1 {
+    color: rgb(255, 198, 89);
+  }
+}
+
+#slot-1.stegosaurus {
+  background-color: var(--slot-1-stegosaurus);
+  color: white;
+  h1 {
+    color: white;
+  }
+}
+
+#slot-2 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+#slot-2.trex {
+  background-color: var(--slot-2-t-rex);
+  color: white;
+  h1 {
+    color: #F6EB61;
+  }
+}
+
+#slot-2.triceratops {
+  background-color: var(--slot-2-triceratops);
+  color: black;
+  h1 {
+    color: rgb(28, 44, 91);
+  }
+}
+
+#slot-2.stegosaurus {
+  background-color: var(--slot-2-stegosaurus);
+  color: white;
+  h1 {
+    color: white;
+  }
+}
+
+#slot-3 {
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+#slot-3.trex {
+  background-color: var(--slot-3-t-rex);
+  text-align: left;
+  h1 {
+    color: #F6EB61;
+    text-align: center;
+  }
+}
+
+#slot-3.triceratops {
+  background-color: var(--slot-3-triceratops);
+  text-align: left;
+  color: white;
+  h1 {
+    color: rgb(255, 198, 89);
+    text-align: center;
+  }
+}
+
+#slot-3.stegosaurus {
+  background-color: var(--slot-3-stegosaurus);
+  color: white;
+  text-align: left;
+  h1 {
+    color: white;
+    text-align: center;
+  }
+}
+
+.trex {
+  background-color: #41220f;
+  color: white;
+}
+
+.triceratops {
+  background-color: #6a7029;
+  color: white;
+}
+
+.stegosaurus {
+  background-color: rgb(32, 78, 55);
+  color: black;
+}
+
+/* Animations */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 1;
+  animation: appear 2s ease;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.grow-in {
+  opacity: 1;
+  animation: grow 2s ease;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-70%);
+    opacity: 1;
+  }
+}
+
+.rise-in {
+  opacity: 1;
+  transform: translateY(-70%);
+  animation: rise 2s ease;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translatex(-70%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.slide-left {
+  opacity: 1;
+  animation: slide-in-left 2s ease;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translatex(70%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.slide-right {
+  opacity: 1;
+  animation: slide-in-right 2s ease;
+}

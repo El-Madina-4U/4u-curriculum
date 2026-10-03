@@ -1,0 +1,25 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #40eae3ff;
+  --secondary: #4c0ee3ff;
+  --tertiary: #ff10f3ff;
+  --page: #ffffff;
+  --onprimary: #ffffff;
+  --onsecondary: #40eae3ff;
+  --ontertiary: #ffffff;
+  --onpage: #4c0ee3ff;
+  --detail: #40eae3ff;
+  --detail2: #4c0ee3ff;
+
+  --body-font: bolder 1rem 'Bungee Inline', sans-serif;
+  --header-font: bolder 2.5rem 'Bungee Inline', sans-serif;
+  --title-font: bolder 2rem 'Truculenta', sans-serif;
+
+  /*  
+  --header-font: lighter 3rem "Bangers", cursive;
+  --title-font: lighter 2rem "Bangers", cursive;
+  --header-font: lighter 3rem "Fredoka One", cursive;
+  --title-font: lighter 2rem "Fredoka One", cursive;
+*/
+}

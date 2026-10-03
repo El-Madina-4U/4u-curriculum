@@ -1,0 +1,16 @@
+/* Set up colour palette and fonts using variables */
+:root {
+  --body-background-colour: #000000;
+  --body-text-colour: #FFFFFF;
+  --nav-background-colour: #333333;
+  --event-background-colour: #333333;
+  --nav-font-colour: #dddddd;
+  --link-hover-colour: #ffc107;
+  --event-background-colour: #333333;
+  --event-border-colour: #cccccc;
+  --slider-colour: #cccccc;
+  --slider-on-colour: #2196f3;
+  --nav-light-mode: #8e6363;
+  --textSection-bgcol: #823d0b;
+  --border-bgcol: #2c3233;
+}

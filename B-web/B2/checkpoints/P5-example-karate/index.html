@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="default.css">
+    <title>Martial Arts quiz</title>
+  </head>
+  <body>
+    <header class="header">
+      <span class="sitename">KARATE QUIZ</span>
+      <span id="scoreText" class="sitename">Score: 0</span>
+    </header>
+    <main>
+      <div class="q-container">
+        <h1>Question 1</h1>
+        <h2>From which country does Karate originate</h2>
+
+        <input type="radio" name="q1" value="" id="q1a1">
+        <label for="q1a1">Korea</label><br>
+
+        <input type="radio" name="q1" value="" id="q1a2">
+        <label for="q1a2">China</label><br>
+
+        <input type="radio" name="q1" value="correct" id="q1a3">
+        <label for="q1a3">Japan</label><br>
+    
+        <div class="result" id="result1"></div>
+        <button id="q1" onclick="checkAnswer('q1', '#result1')">Check Answer</button>
+      </div>
+      <div class="q-container">
+        <h1>Question 2</h1>
+        <h2>What is the term used to describe a Karate school?</h2>
+
+        <input type="radio" name="q2" value="correct" id="q2a1">
+        <label for="q2a1">Dojo</label><br>
+
+        <input type="radio" name="q2" value="" id="q2a2">
+        <label for="q2a2">Gym</label><br>
+
+        <input type="radio" name="q2" value="" id="q2a3">
+        <label for="q2a3">Kwan</label><br>
+    
+        <div class="result" id="result2"></div>
+        <button id="q2" onclick="checkAnswer('q2', '#result2')">Check Answer</button>
+      </div>
+      <div class="q-container">
+        <h1>Question 3</h1>
+        <h2>What does the word Karate mean?</h2>
+
+        <input type="radio" name="q3" value="" id="q3a1">
+        <label for="q3a1">Strike</label><br>
+
+        <input type="radio" name="q3" value="correct" id="q3a2">
+        <label for="q3a2">Open hand</label><br>
+
+        <input type="radio" name="q3" value="" id="q3a3">
+        <label for="q3a3">The art of hand and foot</label><br>
+    
+        <div class="result" id="result3"></div>
+        <button id="q3" onclick="checkAnswer('q3', '#result3')">Check Answer</button>
+      </div>
+    </main>
+  </body>
+  <script src="scripts.js"></script>
+</html>

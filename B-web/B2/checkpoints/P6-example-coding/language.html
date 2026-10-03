@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Title shown in web browsers-->
+    <title>My website title</title>
+    <!-- Include CSS style files -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="default.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- The navigation bar code goes here -->
+    <header>
+      <nav>
+        <div class="nav-items">
+          <a href="index.html">Home</a>
+          <a class="active" href="language.html">Find a language</a>
+        </div>
+      </nav>
+      <div class="hero-image"></div>
+    </header>
+
+    <!-- The main content for the web page goes between the main tags -->
+    <main>
+      <main>
+        <section>
+          <h1>Find the language for you!</h1>
+          <p>Take this quiz to find out the right programming language for you!</p>
+        </section>
+        <section id="alert"></section>
+        <div class="q-container content">
+          <h1>Question 1</h1>
+          <h2>Have you done any coding before?</h2>
+  
+          <input type="radio" name="q1" value="1">
+          <label for="option1">None at all</label><br>
+          
+          <input type="radio" name="q1" value="2">
+          <label for="option2">A little bit</label><br>
+          
+          <input type="radio" name="q1" value="3">
+          <label for="option3">Only block based</label><br>
+
+          <input type="radio" name="q1" value="3">
+          <label for="option3">Lots of coding</label><br>
+          
+          <button id="q1" onclick="nextQ('q1')">Submit</button>
+        </div>
+  
+        <div class="q-container content">
+          <h1>Question 2</h1>
+          <h2>How confident are you at typing?</h2>
+          
+          <input type="radio" name="q2" value="1">
+          <label for="option1">Not at all</label><br>
+          
+          <input type="radio" name="q2" value="2">
+          <label for="option2">A little confident</label><br>
+          
+          <input type="radio" name="q2" value="3">
+          <label for="option3">Very confident</label><br>
+          
+          <button id="q2" onclick="nextQ('q2')">Submit</button>
+        </div>
+
+        <div class="q-container content">
+          <h1>Question 3</h1>
+          <h2>Do you use computers regularly?</h2>
+          
+          <input type="radio" name="q3" value="1">
+          <label for="option1">Not really</label><br>
+          
+          <input type="radio" name="q3" value="2">
+          <label for="option2">Only my phone</label><br>
+          
+          <input type="radio" name="q3" value="3">
+          <label for="option3">A bit at school</label><br>
+          
+          <input type="radio" name="q3" value="4">
+          <label for="option3">All the time</label><br>
+          
+          <button id="q3" onclick="nextQ('q3')">Submit</button>
+        </div>
+
+        <div class="q-container content">
+          <h1>Question 4</h1>
+          <h2>How many of these tools have you heard of: Scratch, Python and Unity?</h2>
+          
+          <input type="radio" name="q4" value="1">
+          <label for="option1">1</label><br>
+          
+          <input type="radio" name="q4" value="2">
+          <label for="option2">2</label><br>
+          
+          <input type="radio" name="q4" value="3">
+          <label for="option3">3</label><br>
+          
+          <button id="q4" onclick="nextQ('q4')">Submit</button>
+        </div>
+
+        <div class="q-container content">
+          <h1>Question 5</h1>
+          <h2>Have you used Python before?</h2>
+          
+          <input type="radio" name="q5" value="1">
+          <label for="option1">Never</label><br>
+          
+          <input type="radio" name="q5" value="2">
+          <label for="option2">A few times</label><br>
+          
+          <input type="radio" name="q5" value="3">
+          <label for="option3">All the time!</label><br>
+          
+          <button id="q5" onclick="nextQ('q5')">Submit</button>
+        </div>
+
+        <div class="q-container content">
+          <h1 id="languagetitle"></h1>
+          <p id="languagetext"></p>
+          <ul>
+            <li id="project1"></li>
+            <li id="project2"></li>
+          </ul>
+          
+        </div>
+
+    </main>
+    </main>
+
+    <!-- Footer code goes here -->
+    <footer>
+      
+    </footer>
+    <script src="language_quiz.js"></script>
+  </body>
+</html>

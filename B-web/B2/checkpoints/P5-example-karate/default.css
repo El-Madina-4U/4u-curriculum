@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+:root {
+  /* Font variable */
+  --body-font: 1.1rem Verdana, sans-serif;
+  --header-font: lighter 3rem 'Bangers', cursive;
+  --title-font: lighter 2rem 'Bangers', cursive;
+  --h1-font: lighter 3rem 'Bangers', cursive;
+  --h2-font: lighter 1rem Verdana, sans-serif;
+  
+  /* Base Colours */
+  --body-background: #ffffff;
+  --background: #000000;
+  --header-font-color: #000000;
+  --h1-colour: #ffffff;
+  --h2-colour: #ffffff;
+  --button-background-colour: #ffffff;
+  --button-font-colour: #000000;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="default.css">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <title>SuperPi Comic Book</title>
+    <title>SuperPi Comic Book</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">Pi Comics</a>
+      <nav class="navbar" id="nav">
+        <a href="index.html">HOME</a>
+        <a href="character.html">CREATE CHARACTER</a>
+      </nav>
+      <div class="switch-container">
+        <label class="switch">
+          <input onchange="changeLightMode()" type="checkbox" id="lightModeSwitch">
+          <span class="switch-slider"></span>
+        </label>
+        <span class="switch-label material-symbols-outlined">light_mode</span>
+      </div>
+    </header>
+    <main>
+      <div class="hero-container">
+        <div class="hero-slider">
+          <span class="hero-slide active"><img src="stacey-hero.jpg" alt="A superhero character with blonde hair, wearing a blue costume and red cape, in front of a blue and yellow background"></span>
+          <span class="hero-slide"><img src="safina-cape.jpg" alt="A superhero character with black hair, wearing a red and white costume and blue cape, in front of a blue and yellow background"></span>
+          <span class="hero-slide"><img src="layton-slider.jpg" alt="A superhero character with blonde hair, wearing a blue costume and red cape, in front of a blue background"></span>
+        </div>
+        <button class="hero-nav-btn prev" onclick="changeHero(-1)">❮</button>
+        <button class="hero-nav-btn next" onclick="changeHero(+1)">❯</button>
+      </div>
+    </main>
+    <footer>
+      <p> Ⓒ <span id="copyrightYear"></span> Malik Johnson- All Rights Reserved</p>
+    </footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>

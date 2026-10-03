@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="default.css" />
+    <title>Dinosaurs: ROAR!</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="dropdown">
+          <button onclick="openDropdown()">Choose Dinosaur &#9207;</button>
+          <div id="dropdown-options">
+            <button onclick="option1()">Tyrannosaurus Rex</button>
+            <button onclick="option2()">Triceratops</button>
+            <button onclick="option3()">Stegosaurus</button>
+            <button onclick="reset()">Reset</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="instruction">
+        <h1>Select a dinosaur &#129429;</h1>
+      </section>
+      <section id="content-holder">
+        <h1 id="title">Dinosaur</h1>
+        <div id="slot-1" class="content"></div>
+        <div id="slot-2" class="content"></div>
+        <div id="slot-3" class="content"></div>
+      </section>
+    </main>
+    <script src="scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>4U · فهرس المنهج</title>
+<style>
+body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:#fffdf7;color:#1a1a2e;margin:0;padding:3vh 5vw;font-size:18px}
+h1{color:#ff8c1a;margin:0 0 .2em}
+h2{margin:1.6em 0 .4em;border-bottom:3px solid #eee;padding-bottom:.2em}
+h2.b{color:#0e9aa7}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.7em}
+.card{background:#fff;border:2px solid #eee;border-radius:.7em;padding:.7em 1em}
+.card b{display:block;font-size:1.05em;margin-bottom:.3em}
+.card a{display:inline-block;margin:.15em .5em .15em 0;padding:.25em .7em;border-radius:1em;text-decoration:none;font-size:.9em;background:#ff8c1a;color:#fff}
+.b .card a{background:#0e9aa7}
+.card a.alt{background:#eee;color:#333}
+.stage{font-size:.75em;color:#888}
+code{font-family:Consolas,monospace;background:#0000000a;padding:.05em .3em;border-radius:.3em;direction:ltr;unicode-bidi:isolate}
+.note{background:#fff3e0;border-inline-start:6px solid #ff8c1a;padding:.6em 1em;border-radius:.4em;margin:1em 0}
+</style>
+</head>
+<body>
+<h1>4U — فهرس المنهج</h1>
+<p>كل جلسة: <b>عرض</b> (شرائح — للأطفال) · <b>ملاحظات</b> (للمدرس) · <b>خطة</b>. الشرائح: أسهم الكيبورد · <code>T</code> مؤقت · <code>F</code> ملء الشاشة · <code>Esc</code> نظرة عامة.</p>
+<div class="note">الصور كلها موجودة ما عدا لقطات <code>GitHub</code> التسع (<code>B1-S12</code> و<code>S14</code>) — بتتلقط بعد تجهيز منظمة الأكاديمية. القائمة فى <code>_tools/capture-manual.md</code>.</div>
+
+<h2>عام</h2>
+<div class="grid">
+<div class="card"><b>الخطة والمراجعات</b><a class="alt" href="00-plan.md">الخطة</a><a class="alt" href="01-review-01.md">مراجعة 1</a><a class="alt" href="02-review-02.md">مراجعة 2</a><a class="alt" href="README.md">README</a></div>
+<div class="card"><b>الورشة المجانية 90 دقيقة</b><a href="workshop/free-workshop-90min.slides.html">عرض</a><a class="alt" href="workshop/free-workshop-90min.notes.md">ملاحظات</a><a class="alt" href="workshop/free-workshop-90min.md">خطة</a></div>
+<div class="card"><b>القالب</b><a href="_templates/session.slides.html">عرض القالب</a></div>
+</div>
+
+<h2>المستوى A1 — Scratch — سن 10–12</h2>
+<div class="grid" id="a1"></div>
+
+<h2>المستوى A2 — Scratch — سن 10–12</h2>
+<div class="grid" id="a2"></div>
+
+<h2 class="b">المستوى B1 — الويب — سن 13–16</h2>
+<div class="grid b" id="b1"></div>
+
+<script>
+const A=[["S01","أهلا بيك فى Scratch","افتتاح"],["S02","Pico بيتكلم","Space talk · A"],["S03","Nano وGiga","Space talk · B"],["S04","القطة والأتوبيس","Catch the bus · A"],["S05","الفرس والأتوبيس","Catch the bus · B"],["S06","لاقى الحشرة","Find the bug · A"],["S07","الببغاء والتايمر","Find the bug · B"],["S08","عيون بتتبع الماوس","Silly eyes · A · Design"],["S09","الشخصية بتتفاعل","Silly eyes · B · Design"],["S10","قصة بمفاجأة 1","Surprise · A · Design"],["S11","قصة بمفاجأة 2","Surprise · B · Design"],["S12","الكتاب: الخطة","I made you a book · Invent"],["S13","الكتاب: نبنى","Invent"],["S14","حد تانى يقرا","Invent + مقابلات"],["S15","اللمسة الأخيرة","Invent + مقابلات"],["S16","العرض","الأهل"]];
+const B=[["S01","كل موقع مكتوب كده","افتتاح"],["S02","بنية الصفحة","Anime · A"],["S03","سطرين والصفحة اتغيرت","Anime · B"],["S04","قائمة بتتحرك","Emojis · A"],["S05","أول كلاس من تأليفك","Emojis · B"],["S06","الكارت: صندوق جوه صندوق","Flip cards · A"],["S07","الكارت بيتقلب","Flip cards · B"],["S08","لوحة المزاج","Mood board · A · Design"],["S09","اللوحة تاخد شكلها","Mood board · B · Design"],["S10","بيعنى حاجة","Sell · A · Design"],["S11","تجذب الانتباه بحساب","Sell · B · Design"],["S12","صفحتك: الخطة والرابط","Invent + GitHub"],["S13","صفحتك: نبنى","Invent"],["S14","زائر حقيقى + commit","Invent + مقابلات"],["S15","اللمسة الأخيرة","Invent + مقابلات"],["S16","العرض — 12 رابط حى","الأهل"]];
+const A2=[["S01","ليه ده لسه مش لعبة؟","افتتاح"],["S02","العصا بتبعت تعويذة","Broadcasting spells · A"],["S03","تعويذة واحدة، تلات مستقبلين","Broadcasting spells · B"],["S04","اليعسوب بياكل والحشرة بتختفى","Grow a dragonfly · A"],["S05","الفم البنفسجى والحشرة التانية","Grow a dragonfly · B"],["S06","الطبلة والعداد 🥁","Drum star · A"],["S07","الزرار اللى بيقرر 💰","Drum star · B"],["S08","المحل بتاعك 🛒","Next customer · A · Design"],["S09","الزبون بيدفع 💳","Next customer · B · Design"],["S10","ماتقعش! النطة 🦘","Don't fall in · A · Design"],["S11","ماتقعش! الفوز والمنصات 🟩","Don't fall in · B · Design"],["S12","السبرايت ده محتاجك 🐣 — الخطة","Invent"],["S13","السبرايت ده محتاجك 🔧 — نبنى","Invent"],["S14","حد تانى يجرب محاكاتك 👀","Invent + مقابلات"],["S15","اللمسة الأخيرة ✨","Invent + مقابلات"],["S16","العرض 🎉","الأهل"]];
+function fill(id,dir,list){document.getElementById(id).innerHTML=list.map(([s,t,st])=>`<div class="card"><b>${s} — ${t}</b><span class="stage">${st}</span><br><a href="${dir}/slides/${s}.slides.html">عرض</a><a class="alt" href="${dir}/notes/${s}.notes.md">ملاحظات</a><a class="alt" href="${dir}/sessions/${s}.md">خطة</a></div>`).join('')}
+fill('a1','A-scratch/A1',A);fill('a2','A-scratch/A2',A2);fill('b1','B-web/B1',B);
+
+// على GitHub Pages ملفات .md بتتنزل بدل ما تترندر — نحولها لعرض GitHub المرندر.
+// محليا (file://) الروابط تفضل نسبية زى ما هى.
+if(location.hostname.endsWith('github.io')){
+  const base='https://github.com/El-Madina-4U/4u-curriculum/blob/main/';
+  document.querySelectorAll('a[href$=".md"],a[href$=".yml"]').forEach(a=>{
+    a.href=base+a.getAttribute('href'); a.target='_blank'; a.rel='noopener';
+  });
+}
+</script>
+</body>
+</html>

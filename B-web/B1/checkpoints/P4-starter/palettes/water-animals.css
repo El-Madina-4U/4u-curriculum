@@ -1,0 +1,19 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #58A7E4;
+  --onprimary: #000000;
+  --secondary: #0D6C86;
+  --onsecondary: #ffffff;
+  --tertiary: #3669D5;
+  --ontertiary: #ffffff; /* 4U — كان #000000: تباين 4.14 ← 5.07 */
+  --page: #ffffff;
+  --onpage: #000000;
+  --detail: #2140A3;
+  --detail2: #161F6F;
+  
+  --body-font: 1rem Verdana, sans-serif;
+  --header-font: lighter 3rem 'Shrikhand', cursive;
+  --title-font: lighter 2rem 'Shrikhand', cursive;
+  --quote-font: lighter 1.5rem 'Shrikhand', cursive;
+}

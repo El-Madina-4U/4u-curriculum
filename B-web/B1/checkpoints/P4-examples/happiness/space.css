@@ -1,0 +1,19 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #583f8f; /* */
+  --onprimary: #ffffff; /* */
+  --secondary: #000000; /* */
+  --onsecondary: #ffffff; /* */
+  --tertiary: #3d75a0; /* */
+  --ontertiary: #ffffff; /* */
+  --page: #ffffff; /* */
+  --onpage: #000000; /* */
+  --detail: #0b5f7b; /* */
+  --detail2: #B7CAD7; /* */
+  
+  --body-font: 1rem Verdana, sans-serif;
+  --header-font: lighter 3rem "Rubik Moonrocks", cursive;
+  --title-font: lighter 2rem "Rubik Moonrocks", cursive;
+  --quote-font: lighter 1.5rem "Rubik Moonrocks", cursive;
+}

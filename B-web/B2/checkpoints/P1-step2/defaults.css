@@ -1,0 +1,17 @@
+/* Import a font */
+
+
+:root {
+
+  --body-background: #ece8ef;
+  --body-text-colour: #000500;
+
+  --nav-colour: #33658a;
+  --nav-items-colour: #55dde0;
+  --nav-items-active: white;
+
+  --burger-colour: white;
+
+  --fact-text-colour: #ece8ef;
+  --fact-background: #000500a5;
+}

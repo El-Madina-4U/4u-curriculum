@@ -1,0 +1,13 @@
+:root {
+  /* Font variable */
+  --font: 16px/1.25 'Raleway', sans-serif;
+  
+  /* Base Colours */
+  --body-background: #FFFF00;
+  --background: #33B5E5;
+  --header-font-colour: #ffffff;
+  --h1-colour: #001e4d;
+  --h2-colour: #001e4d;
+  --button-background-colour: #ffffff;
+  --button-font-colour: #001e4d;
+}

@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+
+* {
+    transition: .4s ease-in-out;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh; /* Make the content fill the page so the footer is at the bottom */
+    display: flex;
+    flex-direction: column;
+    font-family: "Cute Font", sans-serif;
+    font-size: 32px;
+    background-color: #008000;
+    color: white;
+}
+
+main {
+    height: 100%;
+    justify-content: center;
+    margin: 0 auto; /* Center if the browser is really wide */
+    min-width: 25rem; /* Don't let the content get too narrow */
+    max-width: 70rem; /*  Don't let the content get too wide */
+    padding: 0;
+}
+
+section {
+    width: 95%;
+    text-align: center;
+    padding: 2.5% 2.5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+h1 {
+    width: 100%;
+}
+
+nav {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #93bf85;
+}
+
+.dropdown {
+  width: 220px;
+  font-size: large;
+  padding: 5px;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+button {
+  width: 100%;
+  border: none;
+  background-color: white;
+  font-size: 32px;
+  font-family: inherit;
+}
+
+#dropdown-options {
+  position: relative;
+  display: none;
+  color: white;
+  min-width: 140px;
+  text-align: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+#dropdown-options.open {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+#instruction {
+    height: 100vh;
+
+    h1 {
+        font-size: 62px;
+    }
+}
+
+#content-holder {
+  grid-template-rows: repeat(3, 100vh auto);
+}
+
+#content-holder > h1 {
+    font-size: 3em;
+    margin: auto;
+}
+
+.content {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 5px 5px black;
+  padding: 5px;
+  font-size: 32px;
+  opacity: 0;
+}
+
+#slot-1 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#slot-1.liverpool {
+    background-color: rgba(0, 178, 169, 0.8);
+    
+    h1 {
+        color: #F6EB61;
+    }
+}
+
+#slot-1.man-city {
+    background-color: rgba(28, 44, 91, 0.8);
+
+    h1 {
+        color: rgb(255, 198, 89);
+    }
+}
+
+#slot-1.tottenham {
+    background-color: rgba(19, 34, 87, 0.8);
+    color: white;
+    h1 {
+        color: white;
+    }
+}
+
+#slot-2 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+#slot-2.liverpool {
+    background-color: rgba(246, 235, 97, 0.8);
+    color: black;
+    h1 {
+        color: rgb(0, 178, 169);
+    }
+}
+
+#slot-2.man-city {
+    background-color: rgba(255, 198, 89, 0.8);
+    color: black;
+    h1 {
+        color: rgb(28, 44, 91);
+    }
+}
+
+#slot-2.tottenham {
+    background-color: rgba(19, 31, 83, 0.8);
+    color: white;
+    h1 {
+        color: white;
+    }
+}
+
+#slot-3 {
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+#slot-3.liverpool {
+    background-color: rgba(0, 178, 169, 0.8);
+
+    h1 {
+        color: #F6EB61;
+    }
+}
+
+#slot-3.man-city {
+    background-color: rgba(236, 51, 37, 0.8);
+    color: white;
+    h1 {
+        color: rgb(255, 198, 89);
+    }
+}
+
+
+#slot-3.tottenham {
+    background-color: rgba(19, 31, 83, 0.8);
+    color: white;
+    h1 {
+        color: white;
+    }
+}
+
+.liverpool {
+  background-color: #C8102E;
+  color: white;
+}
+
+.man-city {
+  background-color: #6CABDD;
+  color: white;
+}
+
+.tottenham {
+  background-color: white;
+  color: black;
+}
+
+/* Animations */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+    opacity: 1;
+    animation: appear 2s ease;
+}
+
+@keyframes grow {
+  from {
+      transform: scale(0);
+      opacity: 0;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+.grow-in {
+    opacity: 1;
+    animation: grow 2s ease;
+}
+
+@keyframes rise {
+  from {
+      transform: translateY(20%);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(-70%);
+      opacity: 1;
+  }
+}
+
+.rise-in {
+    opacity: 1;
+    transform: translateY(-70%);
+    animation: rise 2s ease;
+}
+
+@keyframes slide-in-left {
+  from {
+      transform: translatex(-70%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0%);
+      opacity: 1;
+  }
+}
+
+.slide-left {
+    opacity: 1;
+    animation: slide-in-left 2s ease;
+}
+
+@keyframes slide-in-right {
+  from {
+      transform: translatex(70%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0%);
+      opacity: 1;
+  }
+}
+
+.slide-right {
+    opacity: 1;
+    animation: slide-in-right 2s ease;
+}

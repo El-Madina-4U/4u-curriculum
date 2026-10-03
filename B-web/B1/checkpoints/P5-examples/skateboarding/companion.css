@@ -1,0 +1,19 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #fad61d;
+  --onprimary: #000000;
+  --secondary: #f8d006;
+  --onsecondary: #000000;
+  --tertiary: #f62d14;
+  --ontertiary: #000000; /* 4U — كان #fbfbfb: تباين 3.83 ← 5.30 */
+  --page: #ffffff;
+  --onpage: #3f3025;
+  --detail: #fdea8d;
+  --detail2: #000000;
+
+  --body-font: 1rem Verdana, sans-serif;
+  --header-font: lighter 3rem "Hanalei Fill", cursive;
+  --title-font: lighter 2rem "Hanalei Fill", cursive;
+  --quote-font: lighter 1.5rem "Hanalei Fill", cursive;
+}

@@ -1,0 +1,19 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #6E6868;
+  --onprimary: #ffffff;
+  --secondary: #000000;
+  --onsecondary: #F81111;
+  --tertiary: #edeaeb;
+  --ontertiary: #000000;
+  --page: #ffffff;
+  --onpage: #000000;
+  --detail: #F81111;
+  --detail2: #f6f6f6;
+
+  --body-font: 1rem Verdana, sans-serif;
+  --header-font: lighter 3rem 'Creepster', cursive;
+  --title-font: lighter 2rem 'Creepster', cursive;
+  --quote-font: lighter 1.5rem 'Creepster', cursive;
+}

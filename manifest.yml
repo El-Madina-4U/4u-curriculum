@@ -1,0 +1,144 @@
+# السلم التعليمى الكامل — أكاديمية 4U
+# نقطة التعديل الواحدة لترتيب المستويات والجلسات.
+# validate.mjs يقرأ هذا الملف ويتحقق من وجود كل ما يشير إليه.
+
+meta:
+  session_min: 90
+  sessions_per_level: 16
+  sessions_per_week: 2
+  cohort_size: 12
+  pair_size: 2
+  late_entry_cutoff: S05
+  updated: 2026-09
+
+tracks:
+  A:
+    name: Scratch
+    ages: [10, 12]
+    tool: Scratch 3
+    accounts: none
+    levels: [A1, A2, A3]
+  B:
+    name: Web
+    ages: [13, 16]
+    tool: Raspberry Pi Code Editor
+    accounts: github-with-parent
+    levels: [B1, B2]
+
+levels:
+  A1:
+    track: A
+    status: built
+    source_path: https://projects.raspberrypi.org/en/pathways/scratch-intro
+    concepts_new: [sprite, script, sequence, event, loop, costume, sound, backdrop]
+    outcome: كتاب تفاعلى متعدد الصفحات
+    projects:
+      - {id: P1, stage: explore, slug: space-talk,        name: "Space talk",        sessions: [S02, S03]}
+      - {id: P2, stage: explore, slug: catch-the-bus,     name: "Catch the bus",     sessions: [S04, S05]}
+      - {id: P3, stage: explore, slug: find-the-bug,      name: "Find the bug",      sessions: [S06, S07]}
+      - {id: P4, stage: design,  slug: silly-eyes,        name: "Silly eyes",        sessions: [S08, S09]}
+      - {id: P5, stage: design,  slug: surprise-animation, name: "Surprise! animation", sessions: [S10, S11]}
+      - {id: P6, stage: invent,  slug: i-made-you-a-book, name: "I made you a book", sessions: [S12, S13, S14, S15]}
+    skill_blocks:
+      S04: digital-safety
+      S08: ai-tools-demo
+      S12: asking-for-help
+    dir: A-scratch/A1
+
+  A2:
+    track: A
+    status: building
+    source_path: https://projects.raspberrypi.org/en/pathways/more-scratch
+    concepts_new: [broadcast, conditional, variable, sensing, operators]
+    outcome: محاكاة فيها متغير بيتغير لوحده والمستخدم بيتدخل يحسنه
+    dir: A-scratch/A2
+    glossary_block: G-141..G-181
+    projects:
+      P1: {name: Broadcasting spells, stage: explore, sessions: [S02, S03], theme_ar: لوحة التحكم}
+      P2: {name: Grow a dragonfly, stage: explore, sessions: [S04, S05]}
+      P3: {name: Drum star, stage: explore, sessions: [S06, S07], theme_ar: مسرح المدرسة}
+      P4: {name: Next customer please, stage: design, sessions: [S08, S09]}
+      P5: {name: Don't fall in!, stage: design, sessions: [S10, S11]}
+      P6: {name: This sprite needs you, stage: invent, sessions: [S12, S13, S14, S15]}
+    skill_blocks:
+      S04: digital-safety-review
+      S08: ai-tools-demo
+      S12: sharing-without-accounts
+
+  A3:
+    track: A
+    status: building
+    source_path: https://projects.raspberrypi.org/en/pathways/further-scratch
+    concepts_new: [my-block, parameter, boolean, repeat-until, clone, scrolling, parallax, music-extension, 2.5d]
+    outcome: محاكاة 2.5D بمنظور الشخص الأول تلبى بريفا مكتوبا
+    dir: A-scratch/A3
+    projects:
+      - {id: P1, stage: explore, slug: nature-rover,           name: "Nature rover",                  sessions: [S02, S03]}
+      - {id: P2, stage: explore, slug: puzzle-room,            name: "Puzzle room",                   sessions: [S04, S05]}
+      - {id: P3, stage: explore, slug: mandala,                name: "Mandala",                       sessions: [S06, S07]}
+      - {id: P4, stage: design,  slug: swarms-schools-flocks,  name: "Swarms, schools, and flocks",   sessions: [S08, S09]}
+      - {id: P5, stage: design,  slug: music-maker,            name: "Music maker",                   sessions: [S10, S11]}
+      - {id: P6, stage: invent,  slug: welcome-to-my-world,    name: "Welcome to my world",           sessions: [S12, S13, S14, S15]}
+    skill_blocks:
+      S04: digital-safety-communities
+      S07: ai-tools-difference
+      S11: read-others-code
+      S14: blocks-to-text-functions
+      S15: blocks-to-text-logic
+
+  B1:
+    track: B
+    status: built
+    source_path: https://projects.raspberrypi.org/en/pathways/web-intro
+    concepts_new: [html-tag, element, attribute, css-rule, selector, property, class, image, list, link, animation]
+    outcome: موقع شخصى منشور على GitHub Pages
+    projects:
+      - {id: P1, stage: explore, slug: anime-expressions,   name: "Anime expressions",   sessions: [S02, S03]}
+      - {id: P2, stage: explore, slug: top-5-emoji-list,        name: "Top 5 emojis",        sessions: [S04, S05]}
+      - {id: P3, stage: explore, slug: flip-treat-webcards, name: "Flip treat webcards", sessions: [S06, S07]}
+      - {id: P4, stage: design,  slug: mood-board,          name: "Mood board",          sessions: [S08, S09]}
+      - {id: P5, stage: design,  slug: sell-me-something,   name: "Sell me something",   sessions: [S10, S11]}
+      - {id: P6, stage: invent,  slug: build-a-webpage,     name: "Build a webpage",     sessions: [S12, S13, S14, S15]}
+    skill_blocks:
+      S04: digital-safety-ip
+      S08: ai-tools-coder
+      S12: github-repo-pages
+      S14: github-commit
+      S15: github-final-commit
+    homework_with_parent:
+      after_S10: github-account
+    dir: B-web/B1
+
+  B2:
+    track: B
+    status: skeleton
+    source_path: https://projects.raspberrypi.org/en/pathways/more-web
+    concepts_new: [javascript, dom, function, event-listener]
+    outcome: موقع تفاعلى
+    skill_blocks_planned: [linkedin-16plus, portfolio]
+    dir: B-web/B2
+
+# خريطة الجلسات الموحدة لكل مستوى مبنى — الجلسة تأخذ نسختها من القالب حسب نوعها
+session_map:
+  S01: {type: opening,  project: null}
+  S02: {type: standard, project: P1, half: A}
+  S03: {type: standard, project: P1, half: B}
+  S04: {type: standard, project: P2, half: A}
+  S05: {type: standard, project: P2, half: B}
+  S06: {type: standard, project: P3, half: A}
+  S07: {type: standard, project: P3, half: B}
+  S08: {type: standard, project: P4, half: A}
+  S09: {type: standard, project: P4, half: B}
+  S10: {type: standard, project: P5, half: A}
+  S11: {type: standard, project: P5, half: B}
+  S12: {type: invent,   project: P6, phase: plan}
+  S13: {type: invent,   project: P6, phase: build}
+  S14: {type: invent,   project: P6, phase: feedback, interviews: [1, 4]}
+  S15: {type: invent,   project: P6, phase: finish,   interviews: [5, 8]}
+  S16: {type: showcase, project: P6, interviews: [9, 12]}
+
+workshop:
+  free_90min:
+    dir: workshop
+    status: built
+    purpose: ورشة مجانية داخل مدرسة — مخرج واحد مبهر فى جلسة واحدة + تشخيص للفرز بين A و B

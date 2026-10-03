@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4U · B1-S06 · الكارت</title>
+<!-- 4U:STYLE -->
+<style>
+@font-face{font-family:"Baloo 4U";font-weight:500 800;font-display:swap;src:url("../../../_shared/fonts/baloo-arabic.woff2") format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Baloo 4U";font-weight:500 800;font-display:swap;src:url("../../../_shared/fonts/baloo-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cairo 4U";font-weight:400 700;font-display:swap;src:url("../../../_shared/fonts/cairo-arabic.woff2") format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Cairo 4U";font-weight:400 700;font-display:swap;src:url("../../../_shared/fonts/cairo-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --ink:#1b1035;--paper:#fffdf8;
+  --accent:#ff7a00;--accent-2:#7c3aed;--accent-3:#ffd60a;--accent-4:#00c2a8;
+  --bg1:#fff1e0;--bg2:#ffe0f0;--bg3:#e6e0ff;
+  --muted:#5f5a75;--card:#fff;--line:#e9e3f5;
+  --display:"Baloo 4U","Segoe UI",Tahoma,sans-serif;--body:"Cairo 4U","Segoe UI",Tahoma,sans-serif;--mono:Consolas,"Cairo 4U","Courier New",monospace;
+  --r:2rem;--bd:4px;
+}
+body[data-track="B"]{--ink:#0b1d2a;--accent:#0aa6a6;--accent-2:#ff3d8a;--accent-3:#b5f000;--accent-4:#3b82f6;--bg1:#e0fbf7;--bg2:#e0f0ff;--bg3:#f6e0ff;--muted:#3f5566;--line:#d8e8ee}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;color:var(--ink);font-family:var(--body);font-size:min(3.11vh,1.75vw);line-height:1.55;background:var(--paper)}
+body{overflow:hidden;position:relative}
+/* خلفية حية: بقع لونية عائمة + شبكة نقط */
+body::before{content:"";position:fixed;inset:-20vmax;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(38vmax 38vmax at 20% 25%,var(--bg2) 0,transparent 60%),
+    radial-gradient(42vmax 42vmax at 80% 20%,var(--bg3) 0,transparent 60%),
+    radial-gradient(45vmax 45vmax at 60% 90%,var(--bg1) 0,transparent 60%),
+    radial-gradient(30vmax 30vmax at 10% 85%,var(--bg3) 0,transparent 60%);
+  animation:drift 26s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;
+  background-image:radial-gradient(var(--line) 1.6px,transparent 1.7px);background-size:34px 34px}
+@keyframes drift{from{transform:translate(0,0) rotate(0deg)}to{transform:translate(4vmax,-3vmax) rotate(6deg)}}
+
+.deck{position:relative;width:100vw;height:100vh;z-index:1}
+.slide{position:absolute;inset:5vh 5vw 9vh;display:none;flex-direction:column;justify-content:center;padding:4vh 5vw;
+  background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(10px);
+  border:var(--bd) solid var(--ink);border-radius:var(--r);box-shadow:14px 14px 0 var(--accent)}
+.slide.active{display:flex;animation:pop .4s cubic-bezier(.16,1,.3,1)}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
+
+.slide h1,.slide h2,.slide h3,.big,.huge,.slide.term .en{font-family:var(--display);font-weight:800;letter-spacing:.005em}
+.slide h1{font-size:2.7em;margin:0 0 .25em;color:var(--accent);line-height:1.15}
+.slide h2{font-size:1.95em;margin:0 0 .35em;color:var(--ink);line-height:1.2}
+.slide h3{font-size:1.3em;margin:.5em 0 .25em;color:var(--accent-2)}
+.slide p{margin:.3em 0;max-width:26em}
+.slide ul,.slide ol{margin:.3em 0;padding-inline-start:1.3em;max-width:26em}
+.slide li{margin:.3em 0;padding-inline-start:.15em}
+/* أسماء بلوكات Scratch الطويلة (when backdrop switches to) بتخرج بره العمود
+   على شاشة 4:3. جوه li بس نسمح بالكسر — والكسر بيحصل عند المسافة الأول. */
+.slide li code{white-space:normal}
+.slide ol.big li::marker,.slide ul.big li::marker{color:var(--accent-2);font-family:var(--display)}
+.slide code{font-family:var(--mono);background:color-mix(in srgb,var(--accent-3) 30%,#fff);border:2px solid color-mix(in srgb,var(--ink) 15%,transparent);padding:.02em .4em;border-radius:.45em;direction:ltr;unicode-bidi:isolate;font-size:max(.9em,.86rem);font-weight:700;white-space:nowrap}
+.slide pre{direction:ltr;text-align:left;unicode-bidi:isolate;font-family:var(--mono);font-size:max(.92em,.86rem);background:var(--ink);color:#f8f6ff;padding:1.3em 1.1em .9em;border-radius:1.1em;overflow:auto;max-width:100%;line-height:1.5;tab-size:2;position:relative;box-shadow:8px 8px 0 var(--accent-2)}
+.slide pre::before{content:"";position:absolute;top:.55em;left:.9em;width:.55em;height:.55em;border-radius:50%;background:#ff5f57;box-shadow:.95em 0 0 #febc2e,1.9em 0 0 #28c840}
+.slide pre .hl{background:color-mix(in srgb,var(--accent) 45%,transparent);outline:2px solid var(--accent-3);border-radius:.25em;padding:0 .15em}
+.slide img{max-width:100%;max-height:54vh;min-height:6em;object-fit:contain;border-radius:1.2em;border:var(--bd) solid var(--ink);box-shadow:10px 10px 0 var(--accent-3);background:#fff}
+.slide .row{display:flex;gap:2.5vw;align-items:center}
+.slide .row>*{flex:1;min-width:0}
+.slide .row img{flex:0 1 auto;width:auto;max-width:62%}
+.kicker{font-family:var(--display);font-weight:700;font-size:.86em;color:var(--accent-2);margin-bottom:.3em;display:inline-block;background:color-mix(in srgb,var(--accent-2) 12%,#fff);padding:.1em .8em;border-radius:1em;border:2px solid color-mix(in srgb,var(--accent-2) 40%,transparent);align-self:flex-start}
+.big{font-size:1.5em;font-weight:700}
+.huge{font-size:3.2em;color:var(--accent);line-height:1.1;margin:.1em 0}
+.muted{color:var(--muted)}
+.tag{display:inline-block;background:var(--accent);color:#fff;padding:.05em .7em;border-radius:1em;font-size:.86em;font-family:var(--display);font-weight:700;vertical-align:middle;border:2px solid var(--ink)}
+.tag.alt{background:var(--accent-2)}
+.cardbox{background:var(--card);border:var(--bd) solid var(--ink);border-radius:1.2em;box-shadow:8px 8px 0 var(--accent-3)}
+
+/* ===== أنواع الشرائح ===== */
+.slide.title{align-items:center;text-align:center;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 18%,#fff),color-mix(in srgb,var(--accent-2) 18%,#fff));box-shadow:14px 14px 0 var(--accent-2)}
+.slide.title h1{font-size:3.6em;color:var(--accent);text-shadow:6px 6px 0 var(--ink);-webkit-text-stroke:2px var(--ink)}
+.slide.title .sub{font-size:1.2em;color:var(--muted);font-family:var(--display);font-weight:700}
+.slide.title .kicker{align-self:center}
+
+.slide.block{align-items:center;text-align:center;background:var(--accent-2);color:#fff;border-color:var(--ink);box-shadow:14px 14px 0 var(--accent-3)}
+.slide.block .num{font-family:var(--display);font-size:.9em;font-weight:700;background:#fff;color:var(--accent-2);padding:.05em .9em;border-radius:1em;border:3px solid var(--ink);transform:rotate(-3deg);display:inline-block}
+.slide.block h1{font-size:3.6em;color:#fff;text-shadow:5px 5px 0 var(--ink);margin-top:.2em}
+.slide.block .num{margin-bottom:.45em}
+.slide.block .min{font-family:var(--display);font-size:1.7em;font-weight:800;color:var(--accent-3);text-shadow:3px 3px 0 var(--ink)}
+.slide.block .muted{color:#fff;opacity:.9}
+
+.slide.term .en{font-size:2.9em;color:#fff;direction:ltr;unicode-bidi:isolate;display:inline-block;margin:.1em 0 .15em;padding:.05em .55em;border-radius:.5em;background:linear-gradient(120deg,var(--accent),var(--accent-2));border:var(--bd) solid var(--ink);box-shadow:8px 8px 0 var(--accent-3);transform:rotate(-2deg);align-self:flex-start;font-family:var(--display)}
+.slide.term .ar{font-family:var(--display);font-size:1.6em;color:var(--accent-2);font-weight:800}
+.slide.term .def{font-size:1.1em;max-width:30em}
+.slide.term:not(:has(.row)){align-items:center;text-align:center}
+.slide.term:not(:has(.row)) .kicker{align-self:center}
+.slide.term:has(.row img){justify-content:flex-start;padding-top:3vh}
+/* الصف بياخد عرض الشريحة كله والصورة تتوسط — من غير كده الشريحة كلها بتتزنق فى نص واحد ونص الشريحة يفضل فاضى */
+.slide.term:has(.row img) .row{align-self:stretch;justify-content:center}
+.slide.term:has(.row img) .en{font-size:2.1em;margin:.05em 0 .1em}
+.slide.term:has(.row img) .ar{font-size:1.3em}
+.slide.term .row img{max-height:31vh;min-height:0;max-width:70%}
+.slide.term .row{margin-top:.4em}
+
+.slide.predict{border-color:var(--accent-2);box-shadow:14px 14px 0 var(--accent-2);background:color-mix(in srgb,var(--accent-2) 8%,#fff)}
+.slide.predict .q{font-family:var(--display);font-size:1.9em;font-weight:800;color:var(--accent-2);line-height:1.25}
+.slide.predict .box{border:4px dashed var(--accent-2);border-radius:1em;padding:.7em 1.1em;min-height:3.5em;color:var(--muted);font-size:.9em;background:#fff}
+
+.slide.step .n{display:inline-flex;width:1.9em;height:1.9em;align-items:center;justify-content:center;border-radius:50%;background:var(--accent-3);color:var(--ink);font-family:var(--display);font-weight:800;font-size:1.35em;margin-inline-end:.45em;border:4px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transform:rotate(-8deg);flex:none;direction:ltr;unicode-bidi:isolate}
+.slide.step h2{display:flex;align-items:center;gap:.35em}
+.slide.step .inst{font-size:1.25em;font-weight:700;max-width:26em}
+
+.slide.code h2{font-size:1.5em}
+
+.slide.ask{align-items:center;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:14px 14px 0 var(--ink)}
+.slide.ask h1{color:#fff;font-size:2.9em;max-width:18em;text-shadow:4px 4px 0 var(--ink);background:none;position:relative;padding:.4em .8em;border:var(--bd) solid #fff;border-radius:1.2em;background:color-mix(in srgb,var(--ink) 22%,transparent)}
+.slide.ask h1::after{content:"";position:absolute;bottom:-.75em;inset-inline-start:2em;border:.4em solid transparent;border-top-color:#fff;border-inline-start-color:#fff}
+.slide.ask .kicker{color:var(--ink);background:#fff;border-color:var(--ink);align-self:center}
+
+.slide.break{align-items:center;text-align:center;background:linear-gradient(160deg,var(--accent-3),var(--accent-4));color:var(--ink);box-shadow:14px 14px 0 var(--accent-2)}
+.slide.break h1{color:var(--ink);font-size:4.2em;text-shadow:5px 5px 0 #fff;animation:bounce 1.6s ease-in-out infinite}
+/* رقم البلوك على شريحة الفاصل: من غير القاعدة دى بيتراكب على العنوان،
+   لأن .slide.break بتوسط كل حاجة والـ.num مالهاش مكان محجوز */
+.slide.break .num{font-family:var(--display);font-size:.9em;font-weight:700;background:#fff;color:var(--accent-2);padding:.05em .9em;border-radius:1em;border:3px solid var(--ink);transform:rotate(-3deg);display:inline-block;margin-bottom:.5em;align-self:center;animation:none}
+.slide.break p{color:var(--ink);font-size:1.4em;font-family:var(--display);font-weight:700}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-.25em)}}
+
+.slide.card{align-items:center}
+.slide.card .cardbox{padding:1em 1.5em;max-width:32em;transform:rotate(-1deg);box-shadow:10px 10px 0 var(--accent);border-color:var(--ink)}
+.slide.card .cardbox h2{color:var(--accent);margin-top:0}
+.slide.card .id{font-family:var(--mono);color:#fff;background:var(--ink);font-size:max(.65em,.86rem);padding:.05em .6em;border-radius:.5em;display:inline-block;direction:ltr}
+
+.slide.challenge{background:color-mix(in srgb,var(--accent-3) 22%,#fff);border-style:dashed;box-shadow:14px 14px 0 var(--accent-3)}
+.slide.challenge h1{font-size:2.1em;color:var(--ink)}
+.slide.challenge .kicker{background:var(--accent-3);color:var(--ink);border-color:var(--ink)}
+
+.slide.sources{justify-content:center;background:color-mix(in srgb,var(--card) 70%,transparent);box-shadow:14px 14px 0 var(--line)}
+.slide.sources h2{color:var(--muted);font-size:1.2em}
+.slide.sources ul{font-size:.86em;color:var(--muted);list-style:none;padding:0}
+.slide.sources li{margin:.15em 0;white-space:nowrap}
+.slide.sources .brand{display:none;position:absolute;top:4vh;inset-inline-start:5vw;font-family:var(--display);font-size:3.4em;font-weight:800;color:var(--accent);letter-spacing:-.02em}
+
+/* ===== اللوجو والشريط ===== */
+.logo{position:fixed;top:2.2vh;inset-inline-start:2.2vw;z-index:6;width:4.2em;height:4.2em;transition:transform .3s}
+.logo:hover{transform:rotate(-8deg) scale(1.08)}
+.logo svg{width:100%;height:100%;filter:drop-shadow(4px 4px 0 var(--ink))}
+.hud{position:fixed;bottom:0;inset-inline:0;height:10px;background:color-mix(in srgb,var(--ink) 10%,transparent);z-index:5}
+.hud .bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:100%;transform:scaleX(0);transform-origin:inline-start;transition:transform .3s;border-radius:0 6px 6px 0}
+.counter{position:fixed;bottom:2.4vh;inset-inline-start:2.2vw;font-size:.62em;color:var(--ink);font-family:var(--display);font-weight:700;direction:ltr;z-index:5;background:#fff;border:3px solid var(--ink);padding:.05em .7em;border-radius:1em;box-shadow:3px 3px 0 var(--ink)}
+.timer{position:fixed;bottom:2.4vh;inset-inline-end:2.2vw;font-size:.95em;font-family:var(--display);font-weight:800;direction:ltr;color:var(--ink);z-index:5;padding:.05em .8em;border-radius:1em;cursor:pointer;user-select:none;background:#fff;border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.timer.on{color:#fff;background:var(--accent)}
+.timer.over{background:#e5163c;color:#fff;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.5}}
+.timer:empty{display:none}
+.nav{position:fixed;top:0;bottom:0;width:16vw;z-index:4;cursor:pointer}
+.nav.prev{inset-inline-start:0}.nav.next{inset-inline-end:0}
+
+/* ===== النظرة العامة ===== */
+body.overview .deck{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5vw;padding:2vw;height:auto;min-height:100vh;overflow:auto}
+body.overview{overflow:auto}
+body.overview .slide{display:flex;position:relative;inset:auto;aspect-ratio:16/9;padding:1.2vw;font-size:.34em;border-width:3px;border-radius:.9em;cursor:pointer;overflow:hidden;box-shadow:5px 5px 0 var(--accent);animation:none;backdrop-filter:none}
+body.overview .slide.active{outline:6px solid var(--accent-2)}
+body.overview .nav,body.overview .hud,body.overview .timer,body.overview .counter,body.overview .logo{display:none}
+
+/* ===== طباعة وحركة أقل ===== */
+@media print{
+  body{overflow:visible;background:#fff}body::before,body::after{display:none}
+  .deck{height:auto}
+  .slide{display:flex!important;position:relative;inset:auto;height:100vh;page-break-after:always;box-shadow:none;animation:none;backdrop-filter:none;margin:0 0 1em}
+  .hud,.counter,.timer,.nav,.logo{display:none}
+}
+@media (prefers-reduced-motion:reduce){body::before,.slide.active,.slide.break h1,.timer.over{animation:none}}
+@media (max-width:900px){html,body{font-size:19px}.slide{padding:3vh 4vw;inset:3vh 3vw 8vh}.slide .row{flex-direction:column}.logo{width:3em;height:3em}}
+</style>
+<!-- /4U:STYLE -->
+</head>
+<body data-track="B" data-session="B1-S06">
+<div class="deck">
+
+<section class="slide title">
+  <div class="kicker">أكاديمية 4U · المستوى B1 · الجلسة 6 من 16</div>
+  <h1>الكارت: صندوق جوه صندوق 🃏</h1>
+  <p class="sub">المشروع: <code>Flip treat webcards</code> · الجلسة A من 2</p>
+</section>
+
+<section class="slide block" data-min="10">
+  <div class="num">البلوك 1 من 7</div>
+  <h1>افتتاح</h1>
+  <div class="min">10 دقايق</div>
+  <p class="muted">علب فى بعض 📦</p>
+</section>
+
+<section class="slide">
+  <h2>الكارت = 3 صناديق</h2>
+  <div style="border:6px solid var(--accent);border-radius:1em;padding:.9em 1.3em;max-width:34em;width:100%;font-size:1.18em">
+    <p class="muted"><code>card</code> — الحجم والإطار</p>
+    <div style="border:5px solid var(--accent-2);border-radius:.8em;padding:.5em 1em">
+      <p class="muted"><code>card-content</code> — اللى بيلف</p>
+      <div class="row">
+        <div style="border:4px solid var(--muted);border-radius:.6em;padding:.4em;text-align:center"><code>card-face</code><br>🖼️ قدام</div>
+        <div style="border:4px solid var(--muted);border-radius:.6em;padding:.4em;text-align:center"><code>card-face</code><br>📝 ضهر</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide term">
+  <div class="kicker">كلمة جديدة — أكتر تاج فى الإنترنت</div>
+  <div class="en">div</div>
+  <div class="ar">ديف</div>
+  <p class="def">صندوق عام. مالوش معنى — بيجمع بس. نديله كلاس عشان يبقى له شكل. <code>F12</code> على أى موقع — مية <code>div</code>.</p>
+</section>
+
+<section class="slide block" data-min="20">
+  <div class="num">البلوك 2 من 7</div>
+  <h1>توقع 👀</h1>
+  <div class="min">20 دقيقة</div>
+</section>
+
+<section class="slide predict">
+  <div class="kicker">توقع</div>
+  <div class="q">لو حطيت الماوس على الكارت؟</div>
+  <div class="row">
+    <img src="../assets/B-PR-03.png" alt="كارت الحلوى">
+    <div class="box">فى الدفتر.</div>
+  </div>
+</section>
+
+<section class="slide code">
+  <h2><code>F12</code> — الشجرة</h2>
+  <pre>div.card
+  div.card-content
+    div.card-face      ← 🖼️
+    div.card-face      ← 📝</pre>
+  <p>كل واحد <b>جوه</b> اللى قبله. مش جنبه.</p>
+</section>
+
+<section class="slide ask">
+  <div class="kicker">نجرب</div>
+  <h1>لو شلنا <code>card-face</code> من الضهر؟</h1>
+</section>
+
+<section class="slide ask">
+  <div class="kicker">فكروا</div>
+  <h1>لو <code>&lt;/div&gt;</code> بتاع <code>card</code> جه قبل <code>&lt;/div&gt;</code> بتاع <code>card-content</code>؟</h1>
+</section>
+
+<section class="slide break" data-min="5">
+  <h1>فاصل 🏋️</h1>
+  <p>الـ <code>CSS</code> البشرى</p>
+</section>
+
+<section class="slide block" data-min="30">
+  <div class="num">البلوك 4 من 7</div>
+  <h1>نبنى</h1>
+  <div class="min">30 دقيقة</div>
+  <p class="muted"><code>P3-starter</code> · بدلوا عند 15</p>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">1</span> اسم التاب</h2>
+  <pre>&lt;head&gt;
+  ...
+  &lt;title&gt;<span class="hl">Treat flip cards</span>&lt;/title&gt;</pre>
+  <p class="inst">حفظ ← <code>F5</code> ← بص على <b>التاب</b> فوق</p>
+</section>
+
+<section class="slide term">
+  <div class="kicker">كلمة جديدة</div>
+  <div class="en">&lt;title&gt;</div>
+  <div class="ar">التايتل</div>
+  <p class="def">اللى بيظهر فى تاب المتصفح ونتايج البحث. جوه <code>&lt;head&gt;</code> — مش فى الصفحة.</p>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">2–4</span> صورة ووصف</h2>
+  <pre>&lt;main&gt;
+  &lt;section class="wrap"&gt;
+    &lt;div&gt;
+      &lt;img src="LapisSarawak02.png" alt="Lapis Sarawak"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h2&gt;Lapis Sarawak&lt;/h2&gt;
+      &lt;p&gt;A cake baked in layers to make colourful patterns.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;</pre>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">5</span> حفظ ← <code>F5</code> ✅</h2>
+  <p class="inst">صورة ووصف تحتها؟ لسه مش كارت.</p>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">6</span> الصندوق الكبير</h2>
+  <pre><span class="hl">&lt;div class="card"&gt;</span>       ← فوق الأول
+  &lt;div&gt;
+    &lt;img ...&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h2&gt;...&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/div&gt;
+<span class="hl">&lt;/div&gt;</span>                        ← تحت التانى</pre>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">7</span> الصندوق اللى بيلف</h2>
+  <pre>&lt;div class="card"&gt;
+  <span class="hl">&lt;div class="card-content"&gt;</span>
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+  <span class="hl">&lt;/div&gt;</span>
+&lt;/div&gt;</pre>
+  <p class="muted"><code>VS Code</code> بيعمل المسافات سلم — لو مش سلم، التداخل غلط</p>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">8</span> حفظ ← <code>F5</code></h2>
+  <p class="inst">الماوس على الكارت. بيلف؟<br><span class="muted">الصورة فوق والكلام تحتها، وزايدين بره الكارت — عادى. لسه.</span></p>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">9</span> الوشين</h2>
+  <pre>&lt;div <span class="hl">class="card-face"</span>&gt;
+  &lt;img ...&gt;
+&lt;/div&gt;
+&lt;div <span class="hl">class="card-face"</span>&gt;
+  &lt;h2&gt;...&lt;/h2&gt;
+  &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;</pre>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">10</span> حفظ ← <code>F5</code> ✅</h2>
+  <p class="inst">الكلام اتركب فوق الصورة. ولف الكارت — بيفضى خالص!<br><span class="muted">ده المتوقع. ناقصنا سطر واحد الجلسة الجاية: نلف الضهر نص لفة.</span></p>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">11</span> نخلى الإطار باين</h2>
+  <pre>.wrap .card {
+  width: 12rem;
+  height: 12rem;
+  border: <span class="hl">5px solid red</span>;
+}</pre>
+  <p class="inst">فى <code>style.css</code> السطر <code>266</code> — السيليكتور <code>.wrap .card</code>، مش <code>.card</code> لوحدها.<br><span class="muted">الإطار كان موجود بلون شفاف. بقى أحمر — دى حدود الكارت.</span></p>
+</section>
+
+<section class="slide step">
+  <h2><span class="n" style="width:auto;min-width:1.9em;padding:0 .5em;border-radius:1em">12–13</span> جوه ولا بره؟</h2>
+  <pre>.wrap .card {
+  <span class="hl">padding: 20px;</span>
+}
+.wrap .card {
+  <span class="hl">margin: 20px;</span>
+}</pre>
+  <p class="inst">واحد ورا التانى — وشيل كل واحد قبل ما تجرب اللى بعده.<br><span class="muted">الأحمر ثابت والصورة بتبعد = <code>padding</code> · الأحمر كله بيتزح = <code>margin</code></span></p>
+</section>
+
+<section class="slide" style="align-items:center;text-align:center">
+  <h2><code>padding</code> جوه · <code>margin</code> بره</h2>
+  <img src="../assets/B-CD-13.png" alt="padding مقابل margin">
+  <p class="muted">مثال عام — الرقم مش مهم. إحنا هنجرب <code>20px</code>.</p>
+</section>
+
+<section class="slide term">
+  <div class="kicker">كلمة جديدة</div>
+  <div class="en">padding · margin</div>
+  <div class="ar">البادينج والمارجن</div>
+  <p class="def">الشباك: <code>padding</code> بين الصورة والبرواز — جوه. <code>margin</code> بين البرواز والحيطة — بره. عندنا: الإطار الأحمر هو البرواز.</p>
+</section>
+
+<section class="slide card">
+  <div class="cardbox">
+    <div class="id">SK-B-07</div>
+    <h2>أضيف مسافة</h2>
+    <p><code>padding: 20px;</code> = جوه — الصورة بتبعد عن الإطار والإطار مكانه.<br><code>margin: 20px;</code> = بره — الإطار كله بيبعد عن جيرانه.</p>
+  </div>
+</section>
+
+<section class="slide step">
+  <h2><span class="n">14</span> رجع واحفظ 💾</h2>
+  <pre>.wrap .card {
+  border: <span class="hl">0.1rem solid transparent</span>;
+}</pre>
+  <p class="inst">شيل <code>padding</code> و<code>margin</code>، ورجع الإطار شفاف. <code>Ctrl+S</code>.</p>
+</section>
+
+<section class="slide challenge">
+  <div class="kicker">خلصت بدرى؟ 🚀</div>
+  <h1><code>width</code> و<code>height</code> فى <code>.wrap .card</code> — غيرهم</h1>
+  <p>وبعدين: لون الإطار وسمكه — <code>red</code> ← <code>blue</code>، و<code>5px</code> ← <code>15px</code>.<br>و<code>&lt;title&gt;</code> بالعربى.</p>
+</section>
+
+<section class="slide break" data-min="5">
+  <h1>فاصل 🎭</h1>
+  <p>الكوستيوم</p>
+</section>
+
+<section class="slide block" data-min="15">
+  <div class="num">البلوك 6 من 7</div>
+  <h1>بطاقات 🃏</h1>
+  <div class="min">15 دقيقة</div>
+  <p class="muted">فقرة بكلاس <code>big</code> وقاعدتها · فيه بطاقة زيادة — مالهاش مكان</p>
+</section>
+
+<section class="slide ask">
+  <div class="kicker">فكروا</div>
+  <h1><code>#big</code> — إيه دى؟ ليه مش <code>.big</code>؟</h1>
+</section>
+
+<section class="slide block" data-min="5">
+  <div class="num">البلوك 7 من 7</div>
+  <h1>ختام</h1>
+  <div class="min">5 دقايق</div>
+  <p class="muted">الماوس على الكارت 🖱️</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">فى الدفتر</div>
+  <h2>الكارت 3 صناديق جوه بعض.<br>اكتب اسم كلاس كل صندوق من بره لجوه.</h2>
+</section>
+
+<section class="slide challenge">
+  <div class="kicker">تحدى اختيارى 🏠</div>
+  <h1>اكتب فى الدفتر: اسم حلوى من بلد تانى + جملة عنها.</h1>
+  <p>اختار من الصور اللى فى فولدر المشروع: كنافة · حلاوة · جلابى · إكلير · دانجو...<br><span class="muted">الجلسة الجاية هنحطها فى كارت تانى — النهاردة كتابة بس.</span></p>
+  <p class="big">💾 <code>Ctrl+S</code></p>
+</section>
+
+<section class="slide sources">
+  <h2>المصادر</h2>
+  <ul>
+    <li>المشاريع: Raspberry Pi Foundation — projects.raspberrypi.org/en/projects/flip-treat-webcards</li>
+    <li>الطريقة: PRIMM (Sue Sentance) · Use-Modify-Create (Lee et al.)</li>
+    <li>التقييم: Brennan &amp; Resnick — Harvard</li>
+    <li>النشر: GitHub Pages</li>
+    <li>أكاديمية 4U — 2026</li>
+  </ul>
+</section>
+
+</div>
+<div class="nav prev" title="السابق"></div>
+<div class="nav next" title="التالى"></div>
+<div class="hud"><div class="bar"></div></div>
+<div class="counter"></div>
+<div class="timer" title="T: ابدأ/أوقف المؤقت"></div>
+<!-- 4U:SCRIPT -->
+<script>
+(function(){
+  // ===== اللوجو — هوية مؤقتة. غير الـ SVG هنا ويسرى على كل العروض بعد المزامنة =====
+  function logoSVG(){return '<svg viewBox="0 0 120 120" aria-label="4U"><defs><linearGradient id="g4u" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-2)"/></linearGradient></defs><rect x="10" y="10" width="100" height="100" rx="30" fill="url(#g4u)" stroke="var(--ink)" stroke-width="6" transform="rotate(-8 60 60)"/><text x="60" y="80" text-anchor="middle" font-family="Baloo 4U,Segoe UI,sans-serif" font-weight="800" font-size="56" fill="#fff" stroke="var(--ink)" stroke-width="3" paint-order="stroke" transform="rotate(-8 60 60)">4U</text><path d="M96 14l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="var(--accent-3)" stroke="var(--ink)" stroke-width="3"/></svg>';}
+  const logo=document.createElement('div');logo.className='logo';logo.innerHTML=logoSVG();logo.title='الشريحة الأولى';document.body.appendChild(logo);
+
+  // الشرائح المخفية بالمسار (only-a / only-b) لازم تتشال من التنقل والعداد.
+  // من غير الفلتر ده المدرس بيدوس «التالى» فيلاقى شريحة فاضية، والعداد
+  // بيقول 34 والظاهر 26 — حصل فعلا فى ورشة الـ90 دقيقة.
+  const _all=[...document.querySelectorAll('.slide')];
+  const _forTrack=t=>_all.filter(s=>
+    !(t==='A'&&s.classList.contains('only-b'))&&
+    !(t==='B'&&s.classList.contains('only-a')));
+  // ?track=B فى الرابط بيفتح نسخة المسار على طول — عشان يبقى لكل مسار
+  // لينك مستقل يتحفظ فى المفضلة بدل ما المدرس يفتكر زرار V
+  const _q=new URLSearchParams(location.search).get('track');
+  if(_q&&/^[abAB]$/.test(_q))document.body.dataset.track=_q.toUpperCase();
+  let slides=_forTrack(document.body.dataset.track);
+  // فيه عروض بنسختين (ورشة الـ90 دقيقة): مسار A للسكراتش وB للويب.
+  // زرار V بيبدل، والمدرس بيختار قبل ما يبدأ.
+  const _hasVariants=_all.some(s=>s.classList.contains('only-a')||s.classList.contains('only-b'));
+  function switchTrack(){
+    if(!_hasVariants)return;
+    document.body.dataset.track=document.body.dataset.track==='A'?'B':'A';
+    slides=_forTrack(document.body.dataset.track);
+    // الرابط يفضل مطابق للنسخة المعروضة، فلو المدرس نسخه يفتح الصح
+    history.replaceState(null,'',location.pathname+'?track='+document.body.dataset.track);
+    show(0);
+  }
+  const bar=document.querySelector('.hud .bar'),counter=document.querySelector('.counter'),timerEl=document.querySelector('.timer');
+  let i=Math.max(0,Math.min(slides.length-1,(parseInt(location.hash.slice(1),10)||1)-1));
+  let typed='',timer=null,left=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    bar.style.transform='scaleX('+((i+1)/slides.length)+')';
+    counter.textContent=(i+1)+' / '+slides.length;
+    location.hash=(i+1);
+    stopTimer();
+    const m=slides[i].dataset.min;
+    timerEl.textContent=m?('⏱ '+m+':00'):'';
+    timerEl.classList.remove('on','over');
+    document.body.classList.remove('overview');
+  }
+  function fmt(s){const a=Math.abs(s);return (s<0?'-':'')+Math.floor(a/60)+':'+String(a%60).padStart(2,'0');}
+  function startTimer(){
+    const m=parseInt(slides[i].dataset.min,10);if(!m)return;
+    left=m*60;timerEl.classList.add('on');timerEl.textContent='⏱ '+fmt(left);
+    timer=setInterval(()=>{left--;timerEl.textContent='⏱ '+fmt(left);if(left<=0){timerEl.classList.add('over');}},1000);
+  }
+  function stopTimer(){if(timer){clearInterval(timer);timer=null;}}
+  function toggleTimer(){if(timer){stopTimer();timerEl.classList.remove('on','over');const m=slides[i].dataset.min;timerEl.textContent=m?('⏱ '+m+':00'):'';}else startTimer();}
+  // RTL: السهم الشمال = التالى
+  document.addEventListener('keydown',e=>{
+    if(e.target.tagName==='INPUT')return;
+    const k=e.key;
+    if(k==='ArrowLeft'||k===' '||k==='PageDown'||(k==='Enter'&&!typed)){e.preventDefault();show(i+1);}
+    else if(k==='ArrowRight'||k==='PageUp'||k==='Backspace'){e.preventDefault();show(i-1);}
+    else if(k==='Home'){show(0);}else if(k==='End'){show(slides.length-1);}
+    else if(k==='t'||k==='T'){toggleTimer();}
+    else if(k==='v'||k==='V'){switchTrack();}
+    else if(k==='f'||k==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+    else if(k==='Escape'){document.body.classList.toggle('overview');}
+    else if(/^\d$/.test(k)){typed+=k;}
+    else if(k==='Enter'&&typed){show(parseInt(typed,10)-1);typed='';}
+  });
+  document.querySelector('.nav.next').addEventListener('click',()=>show(i+1));
+  document.querySelector('.nav.prev').addEventListener('click',()=>show(i-1));
+  timerEl.addEventListener('click',toggleTimer);
+  logo.addEventListener('click',()=>show(0));
+  slides.forEach((s,k)=>s.addEventListener('click',()=>{if(document.body.classList.contains('overview'))show(k);}));
+  let tx=null;
+  document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>60)show(dx<0?i+1:i-1);tx=null;});
+  window.addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1),10);if(n&&n-1!==i)show(n-1);});
+  show(i);
+})();
+</script>
+<!-- /4U:SCRIPT -->
+</body>
+</html>

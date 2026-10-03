@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <title>Comic Book</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">Pi Comics</a>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="character.html">CREATE CHARACTER</a>
+      </nav>
+      <div class="switch-container">
+        <label class="switch">
+          <input onchange="changeLightMode()" type="checkbox" id="lightModeSwitch">
+          <span class="switch-slider"></span>
+        </label>
+        <span class="switch-label material-symbols-outlined">light_mode</span>
+      </div>
+    </header>
+  
+    <main>
+      <section id="character-details"> <!--Superhero character details-->
+        <label for="name-text">Superhero Name:</label>
+        <input type="text" id="name-text">
+        <label for="ability-choice">Ability:</label>
+        <select id="ability-choice">
+          <option value="">Choose an option</option>
+          <option value="Flight">Flying</option>
+          <option value="Invisibility">Invisibility</option>
+          <option value="Time travel">Time travel</option>
+          <option value="Telepathy">Telepathy</option>
+          <option value="Visions">Visions</option>
+          <option value="Stretch">Stretch</option>
+          <option value="Shapeshift">Shapeshift</option>
+          <option value="Speedstar">Speedstar</option>
+          <option value="Ice">Ice</option>
+        </select>
+        <label for="country-choice">Where is your hero from?:</label>
+        <select id="country-choice">
+          <option value="">Choose an option</option>
+          <option value="Space">Space</option>
+          <option value="Wakanda">Wakanda</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="India">India</option>
+          <option value="China">China</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="Australia">Australia</option>
+          <option value="South Africa">South Africa</option>
+        </select>
+        <label for="origin-text">Origin Story:</label>
+        <textarea id="origin-text" placeholder="Add your superhero origin story!"></textarea>
+        <button onclick="checkForm()">Create</button>
+        <div id="alert"> 
+        </div>
+      </section>
+      <section id="summary-section">
+        <h2>Superhero Summary</h2>
+        <p id="summary-paragraph"></p>
+        <button onclick="changeSummary()">Edit</button>
+      </section>
+    </main>
+    <footer>
+      <p> Ⓒ <span id="copyrightYear"></span> - All Rights Reserved</p>
+    </footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>

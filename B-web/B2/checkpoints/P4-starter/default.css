@@ -1,0 +1,9 @@
+:root {
+  /* Font variable */
+  --main-font: 'sans-serif';
+
+  /* Base Colours */
+  --body-background: #FFFFFF;
+  --body-text-colour: #000000;
+
+}

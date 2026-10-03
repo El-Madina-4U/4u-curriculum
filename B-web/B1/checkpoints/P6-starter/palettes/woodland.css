@@ -1,0 +1,19 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #cc9c20; /* */
+  --onprimary: #000000; /* */
+  --secondary: #8da205; /* */
+  --onsecondary: #000000; /* */
+  --tertiary: #373402; /* */
+  --ontertiary: #ffffff; /* */
+  --page: #ffffff; /* */
+  --onpage: #000000; /* */
+  --detail: #ddd53a; /* */
+  --detail2: #223701; /* */
+  
+  --body-font: 1rem Verdana, sans-serif;
+  --header-font: lighter 3rem "Fredericka the Great", cursive;
+  --title-font: lighter 2rem "Fredericka the Great", cursive;
+  --quote-font: lighter 1.5rem "Fredericka the Great", cursive;
+}

@@ -1,0 +1,19 @@
+
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #bfc514ff;
+  --secondary: /*#1fab07ff;*/ #1e9c07;
+  --tertiary: #035693ff;
+  --page: #ddeb93ff;
+  --onprimary: #1f1605ff;
+  --onsecondary: #edf6da;
+  --ontertiary: #ffffff;
+  --onpage: #b27c02ff;
+  --detail: #c0d54dff;
+  --detail2: #dc9010ff;
+
+  --body-font: bolder 1rem "Truculenta", sans-serif;
+  --header-font: bolder 2.5rem "Truculenta", sans-serif;
+  --title-font: bolder 2rem "Truculenta", sans-serif;
+}

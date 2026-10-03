@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap');
+:root {
+  /* Font variable */
+  --main-font: "Bungee Hairline", sans-serif;
+  
+  /* Base Colours */
+  --body-background: #3f3f3f;
+  --body-text-colour: #FFFFFF;
+  --nav-bar: #000000;
+
+  --70s-body: #5a3d2b;
+  --70s-text-colour: #ffecb4;
+  --70s-nav-bar: #e5771e;
+  --80s-body: #2bd1fc;
+  --80s-text-colour: #f3ea5f;
+  --80s-nav-bar: #ff48c4;
+  --90s-body: #49297e;
+  --90s-text-colour: #90dcff;
+  --90s-nav-bar: #00db96;
+  --slot1-seventies: #75c8ae;
+  --slot1-eighties: #c04df9;
+  --slot1-nineties: #e10086;
+  --slot2-seventies: #f4a127;
+  --slot2-eighties: #ff3f3f;
+  --slot2-nineties: #fdfb76;
+  --slot3-seventies: #ffecb4;
+  --slot3-eighties: #f3ea5f;
+  --slot3-nineties: #90dcff;
+
+}

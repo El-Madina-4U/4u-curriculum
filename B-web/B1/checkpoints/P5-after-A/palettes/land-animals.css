@@ -1,0 +1,20 @@
+/* Set up colour palette and fonts using variables */
+
+:root {
+  --primary: #01957d;
+  --onprimary: #000000;
+  --secondary: #e65c1e;
+  --onsecondary: #000000;
+  --tertiary: #a8d67e;
+  --ontertiary: #000000; /* 4U — كان #fbfbfb: تباين 1.61 ← 12.58 */
+  --page: #ffffff;
+  --onpage: #000000;
+  --detail: #fddb81;
+  --detail2: #470f01;
+ 
+  
+  --body-font: 1rem Verdana, sans-serif;
+  --header-font: lighter 3rem 'Ranchers', cursive;
+  --title-font: lighter 2rem 'Ranchers', cursive;
+  --quote-font: lighter 1.5rem 'Ranchers', cursive;
+}
